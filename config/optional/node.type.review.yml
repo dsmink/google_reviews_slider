@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: xKR_yVBOZT1JMiZjbAdIyObYeDnaRS2CrE4JyRCM8PY
+name: Review
+type: review
+description: 'Google review content element'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

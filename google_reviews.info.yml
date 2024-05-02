@@ -1,0 +1,7 @@
+name: 'Google Reviews'
+type: module
+description: 'Adds Google Reviews integration into a custom block'
+package: Custom
+core_version_requirement: ^9 || ^10
+'interface translation project': google_reviews
+'interface translation server pattern': modules/custom/google_reviews/translations/google_reviews-fr.po

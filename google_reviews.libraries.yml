@@ -1,0 +1,22 @@
+swiperjs:
+  remote: https://cdn.jsdelivr.net/npm/swiper@11/swiper.js
+  version: 11.1.1
+  license:
+    name: MIT
+    url: https://cdn.jsdelivr.net/npm/swiper@11/LICENSE
+  js:
+    https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js: { type: external, minified: true }
+
+swiper:
+  js: 
+    assets/js/review_swiper.js: {}
+  dependencies:
+  - google_reviews/swiperjs  
+
+reviews-style:
+  css:
+    theme:
+      assets/css/style.css: {}
+      https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css: {}
+  dependencies:
+  - google_reviews/swiper

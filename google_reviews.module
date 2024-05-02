@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Google Reviews.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function google_reviews_theme() {
+  return [
+    'reviews_theme' => [
+      'variables' => [
+        'rating' => '',
+        'messages' => [],
+        'title' => '',
+        'review_link_url' => '',
+        'reviews_link_text' => '',
+      ],
+      'template' => 'reviews_display_template',
+    ],
+  ];
+}
+
+/**
+ * Hook_cron.
+ */
+function google_reviews_cron() {
+  $container = \Drupal::getContainer();
+  $controller = $container->get('class_resolver')->getInstanceFromDefinition('Drupal\google_reviews\Controller\ReviewController');
+  $controller->fetchReviews();
+}

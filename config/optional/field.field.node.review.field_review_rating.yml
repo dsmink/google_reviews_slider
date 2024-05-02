@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_review_rating
+    - node.type.review
+  module:
+    - options
+id: node.review.field_review_rating
+field_name: field_review_rating
+entity_type: node
+bundle: review
+label: review_rating
+description: 'The rating of the review'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

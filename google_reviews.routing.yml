@@ -1,0 +1,15 @@
+google_reviews.review_settings:
+  path: '/admin/review-settings'
+  defaults:
+    _form: '\Drupal\google_reviews\Form\ReviewSettingsForm'
+    _title: 'Parametres du module de reviews'
+  requirements:
+    _permission: 'google_reviews admin'
+
+google_reviews.add_reviews:
+  path: '/reviews'
+  defaults:
+    _controller: '\Drupal\google_reviews\Controller\ReviewController::fetchReviews'
+    _title: 'Reviews de Google'
+  requirements:
+    _permission: 'google_reviews admin'

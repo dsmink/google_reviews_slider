@@ -1,0 +1,48 @@
+{{ attach_library('google_reviews/reviews-style') }}
+
+<div class="reviews-block">
+	<div class="reviews-header">
+		{% if title %}
+			<h3 class="reviews-title">{{ title }}</h3>
+		{% endif %}
+		{% if rating %}
+			{% if rating >= 3.5 %}
+				<div class="global-rating rating-green-border">{{ rating }}</div>
+			{% elseif rating < 2 %}
+				<div class="global-rating rating-red-border">{{ rating }}</div>
+			{% else %}
+				<div class="global-rating rating-yellow-border">{{ rating }}</div>
+			{% endif %}
+		{% endif %}
+	</div>
+	<div class="swiper">
+		<div class="swiper-wrapper">
+			{% for message in messages %}
+				<div class="swiper-slide">
+					<div class="message-section">{{ message.message|length > 400 ? message.message|slice(0, 400) ~ '…' : message.message }}</div>
+					<div class="author-section">
+						<div class="photo-section">
+							<img class="author-photo" src={{ message.author_photo_url }} alt="author image"/>
+						</div>
+						<div class="author-info-section">
+							<div>
+								<strong>{{ message.author_name }}</strong>
+							</div>
+							<div>
+								{% for i in range(1, message.author_rating) %}
+									{% include '@google_reviews/assets/svg/star.svg' %}
+								{% endfor %}
+							</div>
+							<div>
+								{{ message.time }}
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+	</div>
+	<a href={{ review_page_link }}>{{ reviews_link_message }}</a>
+</div>

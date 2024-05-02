@@ -1,0 +1,5 @@
+google_reviews.review_settings:
+  title: 'Review Settings'
+  description: 'Configuration options for the Google reviews module'
+  route_name: google_reviews.review_settings
+  parent: 'system.admin_config_services'

@@ -1,0 +1,4 @@
+services:
+  google_reviews.reviews_service:
+    class: Drupal\google_reviews\ReviewService
+    arguments: ['@config.factory']
