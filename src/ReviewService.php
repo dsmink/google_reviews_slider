@@ -44,7 +44,12 @@ class ReviewService {
     $created_reviews = 0;
     foreach ($place_id_list as $place_id) {
       $result = $this->importReview($client, $place_id, $api_key);
-      if ($result && !empty($result['result']['reviews'])) {
+      if ($result && !empty($result['error_message'])) {
+        \Drupal::messenger()->addError(
+          'API ERROR: ' . $result['error_message']
+        );
+      }
+      elseif ($result && !empty($result['result']['reviews'])) {
         foreach ($result['result']['reviews'] as $review) {
           if (!$this->isCreated($review)) {
             $this->createReview($review);
